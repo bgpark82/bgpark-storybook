@@ -7,9 +7,7 @@ export default {
     title:'component|hello',
     component:Hello,
     decorators:[withKnobs],
-    parameters:{
-        
-    },
+   
 }
 
 export const hello = () => {
