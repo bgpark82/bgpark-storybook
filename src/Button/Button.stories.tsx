@@ -1,8 +1,10 @@
 /** @jsx jsx */
-import { withKnobs, text, array, select, boolean } from '@storybook/addon-knobs';
-import Button from './Button';
-import {jsx, css} from '@emotion/core'
+import { css, jsx } from '@emotion/core';
 import { action } from '@storybook/addon-actions';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import ButtonGroup from '../ButtonGroup/ButtonGroup';
+import Icon from '../Icon/Icon';
+import Button from './Button';
 
 export default {
     title : 'component|button',
@@ -81,6 +83,60 @@ export const width = () => {
     )
 }
 
+export const withIcon = () => {
+    return(
+        <div>
+            <ButtonGroup>
+                <Button size="medium">
+                    <Icon icon="heart"/> HEART
+                </Button>
+                <Button size="medium" theme="secondary">
+                    <Icon icon="exit"/> EXIT
+                </Button>            
+                <Button size="medium" theme="tertiary">
+                    <Icon icon="pencil"/> PENCIL
+                </Button>
+            </ButtonGroup>
+            
+        </div>
+    )
+}
+
+export const withIconDisabled = () => {
+    return(
+        <div>
+            <ButtonGroup>
+                <Button disabled size="medium">
+                    <Icon icon="heart"/> HEART
+                </Button>
+                <Button disabled size="medium" theme="secondary">
+                    <Icon icon="exit"/> EXIT
+                </Button>            
+                <Button disabled size="medium" theme="tertiary">
+                    <Icon icon="pencil"/> PENCIL
+                </Button>
+            </ButtonGroup>
+        </div>
+    )
+}
+
+export const withIconInSize = () => {
+    return(
+        <div>
+            <ButtonGroup>
+                <Button size="small">
+                    <Icon icon="heart"/> HEART
+                </Button>
+                <Button size="medium">
+                    <Icon icon="heart"/> HEART
+                </Button>            
+                <Button size="large">
+                    <Icon icon="heart"/> HEART
+                </Button>
+            </ButtonGroup>
+        </div>
+    )
+}
 
 
 const VirticalWrapper = css`

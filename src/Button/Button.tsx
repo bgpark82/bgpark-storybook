@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {jsx, css} from '@emotion/core'
+import { css, jsx } from '@emotion/core'
 
 type ButtonProps = {
     /** 버튼 안의 내용 */
@@ -42,18 +42,29 @@ const style = css`
     border-radius:0.25rem;
     line-height:1;
     font-weight:600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     &:focus {
         box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
     }
     &:disabled {
         cursor:not-allowed;
     }
+    svg {
+        width:1em;
+        margin-right: 1em;
+    }
+    
 `
 
 const themes = {
     primary : css`
         background: #20c997;
         color:white;
+        svg {
+            fill:white;
+        }
         &:hover:enabled {
         background: #38d9a9;
         }
@@ -75,6 +86,9 @@ const themes = {
         }
         &:disabled {
           color: #c6d3e1;
+          svg {
+            fill: #c6d3e1;
+          }
         }
     `,
     tertiary: css`
@@ -88,6 +102,9 @@ const themes = {
         }
         &:disabled {
             color: #bcd9d0;
+            svg {
+                fill: #bcd9d0;
+            }
         }
     `
 }
