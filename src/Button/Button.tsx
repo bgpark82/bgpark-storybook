@@ -27,7 +27,7 @@ const Button = ({children, theme, size, disabled, width, onClick}:ButtonProps) =
 
 Button.defaultProps = {
     theme: 'primary',
-    size: 'medium'
+    size: 'small'
 }
 
 const style = css`
