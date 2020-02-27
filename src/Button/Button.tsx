@@ -7,12 +7,21 @@ type ButtonProps = {
     /** 버튼의 theme */
     theme: 'primary' | 'secondary' | 'tertiary',
     /** 버튼의 크기 */
-    size: 'small' | 'medium' | 'large'
+    size: 'small' | 'medium' | 'large',
+    /** 버튼 비활성화 */
+    disabled?: boolean,
+    /** 버튼 너비 */
+    width?: string|number,
+    /** 버튼 Click 이벤트  */
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Button = ({children, theme, size}:ButtonProps) => {
+const Button = ({children, theme, size, disabled, width, onClick}:ButtonProps) => {
     return(
-        <button css={[style, themes[theme], sizes[size]]}>{children}</button>
+        <button css={[style, themes[theme], sizes[size], {width}]} 
+                disabled={disabled}
+                onClick={onClick}
+        >{children}</button>
     )
 }
 
@@ -36,11 +45,8 @@ const style = css`
     &:focus {
         box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
     }
-    &:hover {
-        background: #38d9a9;
-    }
-    &:active{
-        background: #12b886;
+    &:disabled {
+        cursor:not-allowed;
     }
 `
 
@@ -48,31 +54,40 @@ const themes = {
     primary : css`
         background: #20c997;
         color:white;
-        &:hover {
+        &:hover:enabled {
         background: #38d9a9;
         }
-        &:active{
+        &:active:enabled{
             background: #12b886;
+        }
+        &:disabled{
+            background: #aed9cc;
         }
     `,
     secondary: css`
         background: #e9ecef;
         color: #343a40;
-        &:hover {
+        &:hover:enabled {
             background: #f1f3f5;
         }
-        &:active {
+        &:active:enabled {
             background: #dee2e6;
+        }
+        &:disabled {
+          color: #c6d3e1;
         }
     `,
     tertiary: css`
         background: none;
         color: #20c997;
-        &:hover {
+        &:hover:enabled {
             background: #e6fcf5;
         }
-        &:active {
+        &:active:enabled {
             background: #c3fae8;
+        }
+        &:disabled {
+            color: #bcd9d0;
         }
     `
 }
