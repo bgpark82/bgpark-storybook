@@ -24,7 +24,7 @@ export const button = () => {
 
 export const themes = () => {
     return(
-        <div css={VirticalWrapper}>
+        <div css={VerticalWrapper}>
             <div>
                 <Button theme="primary">PRIMARY</Button>
             </div>
@@ -40,7 +40,7 @@ export const themes = () => {
 
 export const sizes = () => {
     return(
-        <div css={VirticalWrapper}>
+        <div css={VerticalWrapper}>
             <div>
                 <Button size="small">SMALL</Button>
             </div>
@@ -56,7 +56,7 @@ export const sizes = () => {
 
 export const disabled = () => {
     return(
-        <div css={VirticalWrapper}>
+        <div css={VerticalWrapper}>
             <div>
                 <Button disabled theme="primary">PRIMARY</Button>
             </div> 
@@ -120,7 +120,7 @@ export const withIconDisabled = () => {
     )
 }
 
-export const withIconInSize = () => {
+export const withIconInDifferentSize = () => {
     return(
         <div>
             <ButtonGroup>
@@ -138,8 +138,28 @@ export const withIconInSize = () => {
     )
 }
 
+export const iconOnlyInDifferentSize = () => {
+    return(
+        <div>
+            <ButtonGroup>
+                <Button iconOnly size="small">
+                    <Icon icon="heart"/> 
+                </Button>
+                <Button iconOnly size="medium">
+                    <Icon icon="heart"/> 
+                </Button>            
+                <Button iconOnly size="large">
+                    <Icon icon="heart"/> 
+                </Button>
+            </ButtonGroup>
+        </div>
+    )
+}
 
-const VirticalWrapper = css`
+
+
+
+const VerticalWrapper = css`
     display:flex;
     & > div {
         margin-right:1rem;

@@ -12,13 +12,15 @@ type ButtonProps = {
     disabled?: boolean,
     /** 버튼 너비 */
     width?: string|number,
+    /** 아이콘 버튼 */
+    iconOnly?: boolean
     /** 버튼 Click 이벤트  */
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Button = ({children, theme, size, disabled, width, onClick}:ButtonProps) => {
+const Button = ({children, theme, size, disabled, width, onClick, iconOnly}:ButtonProps) => {
     return(
-        <button css={[style, themes[theme], sizes[size], {width}]} 
+        <button css={[style, themes[theme], sizes[size], {width}, iconOnly && [iconOnlyStyle, iconOnlySizes[size]]]} 
                 disabled={disabled}
                 onClick={onClick}
         >{children}</button>
@@ -124,6 +126,26 @@ const sizes = {
         height: 3rem;
         font-size: 1.125rem;
         padding: 0 1.5rem;
+    `
+}
+
+const iconOnlyStyle = css`
+    border-radius: 50%;
+    padding:0;
+    svg{
+        margin:0;
+    }
+`
+
+const iconOnlySizes = {
+    small:css`
+        width: 1.75rem;
+    `,
+    medium:css`
+        width: 2.5rem;
+    `,
+    large:css`
+        width: 3rem; 
     `
 }
 
