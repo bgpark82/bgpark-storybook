@@ -32,7 +32,21 @@ export const themes = () => {
     )
 }
 
-
+export const sizes = () => {
+    return(
+        <div css={buttonWrapper}>
+            <div>
+                <Button size="small">SMALL</Button>
+            </div>
+            <div>
+                <Button size='medium'>MEDIUM</Button>
+            </div>
+            <div>
+                <Button size='large'>LARGE</Button>
+            </div>
+        </div>
+    )
+}
 
 const buttonWrapper = css`
     display:flex;

@@ -6,11 +6,13 @@ type ButtonProps = {
     children: React.ReactNode,
     /** 버튼의 theme */
     theme: 'primary' | 'secondary' | 'tertiary',
+    /** 버튼의 크기 */
+    size: 'small' | 'medium' | 'large'
 }
 
-const Button = ({children, theme}:ButtonProps) => {
+const Button = ({children, theme, size}:ButtonProps) => {
     return(
-        <button css={[style, themes[theme]]}>{children}</button>
+        <button css={[style, themes[theme], sizes[size]]}>{children}</button>
     )
 }
 
@@ -75,6 +77,22 @@ const themes = {
     `
 }
 
-
+const sizes = {
+    small:css`
+        height: 1.75rem;
+        font-size: 0.75rem;
+        padding: 0 0.875rem;
+    `,
+    medium:css`
+        height: 2.5rem;
+        font-size: 1rem;
+        padding: 0 1rem;
+    `,
+    large:css`
+        height: 3rem;
+        font-size: 1.125rem;
+        padding: 0 1.5rem;
+    `
+}
 
 export default Button;
