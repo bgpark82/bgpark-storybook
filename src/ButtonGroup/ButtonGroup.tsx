@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import {jsx, css} from '@emotion/core'
-import Button from '../Button/Button'
+import { css, jsx } from '@emotion/core'
 
 type ButtonGroupProps = {
     /** 버튼 그룹 내 버튼 */
@@ -17,7 +16,7 @@ type ButtonGroupProps = {
 
 const ButtonGroup = ({children, direction, rightAlign, gap, className}: ButtonGroupProps) => {
     return(
-        <div css={[style, flex[direction], rightAlign && rightAlignStyle, gapStyle(direction, gap), {className}]}>
+        <div css={[style, flex[direction], rightAlign && rightAlignStyle, gapStyle(direction, gap)]} className={className}>
             {children}
         </div>
     )

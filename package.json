@@ -1,6 +1,7 @@
 {
-  "name": "bgpark-storybook",
+  "name": "thenextloop-uikit",
   "version": "1.0.0",
+  "module": "dist/index.js",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {},
@@ -13,10 +14,17 @@
     "@storybook/addon-storysource": "^5.3.14",
     "@storybook/addons": "^5.3.14",
     "@storybook/react": "^5.3.14",
+    "@svgr/rollup": "^5.2.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-named-asset-import": "^0.3.6",
     "babel-preset-react-app": "^9.1.1",
     "react-docgen-typescript-loader": "^3.6.0",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-url": "^3.0.1",
     "typescript": "^3.8.2"
   },
   "scripts": {
@@ -24,6 +32,9 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.27"
+    "@emotion/core": "^10.0.27",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-spring": "^8.0.27"
   }
 }

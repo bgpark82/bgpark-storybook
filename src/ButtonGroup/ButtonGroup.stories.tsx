@@ -1,7 +1,8 @@
-import React from 'react'
-import ButtonGroup from './ButtonGroup'
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'
 import Button from '../Button/Button'
-import { withKnobs, select, boolean, text } from '@storybook/addon-knobs'
+import ButtonGroup from './ButtonGroup'
 
 export default {
     title:'component|button group',
@@ -39,7 +40,7 @@ export const column = () => {
 export const rightAlign = () => {
 
     return(
-        <ButtonGroup rightAlign>
+        <ButtonGroup css={{ marginTop: '3rem' }} rightAlign>
             <Button theme="tertiary">취소</Button>
             <Button>확인</Button>
         </ButtonGroup>
