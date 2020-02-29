@@ -452,4 +452,66 @@ var Icon = function Icon(_ref) {
   });
 };
 
-export { Button, ButtonGroup, Dialog, Icon };
+function _templateObject3$3() {
+  var data = _taggedTemplateLiteral(["\n\n    margin-top:0.5rem;\n    h2{\n        margin: 0;\n        cursor:pointer;\n    }\n    p {\n        margin:0;\n        line-height:1.5;\n        margin-top:0.5rem;\n        white-space: normal;\n    }\n    \n"]);
+
+  _templateObject3$3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$3() {
+  var data = _taggedTemplateLiteral(["\n    background:black;\n    margin-right:1rem;\n    border-radius:4px;\n    img {\n        display:block;\n        width: 10rem; \n        height: 6rem;\n        object-fit:cover;\n        border-radius:4px;\n        cursor:pointer;\n    }\n"]);
+
+  _templateObject2$3 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$3() {
+  var data = _taggedTemplateLiteral(["\n    width:20rem;\n    padding:1rem;\n    display:flex;\n\n    & + & {\n        margin-top: 3rem;\n    }\n    &:hover {\n        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);\n    }\n"]);
+
+  _templateObject$3 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var Item = function Item(_ref) {
+  var hideImage = _ref.hideImage,
+      image = _ref.image,
+      title = _ref.title,
+      description = _ref.description,
+      children = _ref.children,
+      className = _ref.className,
+      width = _ref.width;
+  return jsx("div", {
+    css: [itemBox, {
+      width: width
+    }],
+    className: className
+  }, !hideImage && jsx("div", {
+    css: thumbnail
+  }, jsx("img", {
+    src: image,
+    alt: "image"
+  })), jsx("div", {
+    css: contents
+  }, jsx("h2", null, title), jsx("p", null, description), children));
+};
+
+Item.defaultProps = {
+  hideImage: false,
+  title: '이미지',
+  description: '이미지 설명'
+};
+var itemBox = css(_templateObject$3());
+var thumbnail = css(_templateObject2$3());
+var contents = css(_templateObject3$3());
+
+export { Button, ButtonGroup, Dialog, Icon, Item };
