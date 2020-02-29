@@ -1,8 +1,11 @@
 {
   "name": "thenextloop-uikit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "module": "dist/index.js",
-  "types":"dist/types/index.d.ts",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "main": "index.js",
   "license": "MIT",
   "dependencies": {},
