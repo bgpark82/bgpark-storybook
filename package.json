@@ -1,6 +1,6 @@
 {
   "name": "thenextloop-uikit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
@@ -34,7 +34,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "npm install & rollup -c",
+    "build": "rollup -c",
     "build:types": "tsc --emitDeclarationOnly"
   },
   "peerDependencies": {
