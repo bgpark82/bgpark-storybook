@@ -3,7 +3,7 @@ declare type ButtonProps = {
     /** 버튼 안의 내용 */
     children: React.ReactNode;
     /** 버튼의 theme */
-    theme: 'primary' | 'secondary' | 'tertiary';
+    theme: 'primary' | 'secondary' | 'tertiary' | 'bordered';
     /** 버튼의 크기 */
     size: 'small' | 'medium' | 'large';
     /** 버튼 비활성화 */
@@ -12,11 +12,13 @@ declare type ButtonProps = {
     width?: string | number;
     /** 아이콘 버튼 */
     iconOnly?: boolean;
+    /** 버튼 둥글기 */
+    radius?: boolean;
     /** 버튼 Click 이벤트  */
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 declare const Button: {
-    ({ children, theme, size, disabled, width, onClick, iconOnly }: ButtonProps): JSX.Element;
+    ({ children, theme, size, disabled, width, onClick, iconOnly, radius }: ButtonProps): JSX.Element;
     defaultProps: {
         theme: string;
         size: string;

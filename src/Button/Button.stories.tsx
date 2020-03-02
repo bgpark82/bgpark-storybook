@@ -13,12 +13,13 @@ export default {
 }
 
 export const button = () => {
-    const theme = select('theme',['primary','secondary','tertiary'], 'primary');
+    const theme = select('theme',['primary','secondary','tertiary','bordered'], 'primary');
     const size = select('size',['small','medium','large'], 'medium');
     const disabled = boolean('disabled',false)
     const width = text('width','')
+    const radius = boolean('radius',false)
     return(
-        <Button theme={theme} size={size} disabled={disabled} onClick={action('onClick')} width={width}>BUTTON</Button>
+        <Button radius={radius} theme={theme} size={size} disabled={disabled} onClick={action('onClick')} width={width}>BUTTON</Button>
     )
 }
 
@@ -33,6 +34,9 @@ export const themes = () => {
             </div>
             <div>
                 <Button theme="tertiary">TERTIARY</Button>
+            </div>
+            <div>
+                <Button theme="bordered">BORDERED</Button>
             </div>
         </div>
     )
@@ -65,6 +69,9 @@ export const disabled = () => {
             </div> 
             <div> 
                 <Button disabled theme="tertiary">TERTIARY</Button>
+            </div>
+            <div>
+                <Button disabled theme="bordered">BORDERED</Button>
             </div>
         </div>
     )

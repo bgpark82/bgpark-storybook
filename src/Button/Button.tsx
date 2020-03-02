@@ -5,7 +5,7 @@ type ButtonProps = {
     /** 버튼 안의 내용 */
     children: React.ReactNode,
     /** 버튼의 theme */
-    theme: 'primary' | 'secondary' | 'tertiary',
+    theme: 'primary' | 'secondary' | 'tertiary' | 'bordered',
     /** 버튼의 크기 */
     size: 'small' | 'medium' | 'large',
     /** 버튼 비활성화 */
@@ -14,13 +14,16 @@ type ButtonProps = {
     width?: string|number,
     /** 아이콘 버튼 */
     iconOnly?: boolean
+    /** 버튼 둥글기 */
+    radius?:boolean
+
     /** 버튼 Click 이벤트  */
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Button = ({children, theme, size, disabled, width, onClick, iconOnly}:ButtonProps) => {
+const Button = ({children, theme, size, disabled, width, onClick, iconOnly, radius}:ButtonProps) => {
     return(
-        <button css={[style, themes[theme], sizes[size], {width}, iconOnly && [iconOnlyStyle, iconOnlySizes[size]]]} 
+        <button css={[style, themes[theme], sizes[size], {width}, radius && radiusStyle, iconOnly && [iconOnlyStyle, iconOnlySizes[size]]]} 
                 disabled={disabled}
                 onClick={onClick}
         >{children}</button>
@@ -108,6 +111,25 @@ const themes = {
                 fill: #bcd9d0;
             }
         }
+    `,
+    bordered: css`
+        border:1.4px solid #343a40;
+        color: #343a40;
+        background:none;
+        &:hover:enabled {
+            background: #343a40;
+            color:white;
+        }
+        &:active:enabled {
+            background: #343a40;
+        }
+        &:disabled {
+            color: #e9ecef;
+            border-color:#e9ecef;
+            svg {
+                fill: #e9ecef;
+            }
+        }
     `
 }
 
@@ -148,5 +170,9 @@ const iconOnlySizes = {
         width: 3rem; 
     `
 }
+
+const radiusStyle = css`
+    border-radius:4rem;
+`
 
 export default Button;
