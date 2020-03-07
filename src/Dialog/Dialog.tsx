@@ -1,130 +1,149 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
-import { Fragment } from 'react';
-import { animated, useTransition } from 'react-spring';
-import Button from '../Button/Button';
-import ButtonGroup from '../ButtonGroup/ButtonGroup';
+import { css, jsx } from "@emotion/core";
+import { Fragment } from "react";
+import { animated, useTransition } from "react-spring";
+import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import globalStyle from "../globalStyle";
 
 type DialogProps = {
     /** 제목 */
-    title?:string,
+    title?: string;
     /** 설명 */
-    description?:string,
+    description?: string;
     /** 취소버튼 활성화 */
-    cancelable?:boolean
+    cancelable?: boolean;
     /** 취소 버튼 텍스트 */
-    cancelText:string
+    cancelText: string;
     /** 확인 버튼 텍스트*/
-    confirmText:string,
+    confirmText: string;
     /** 설명 아래 추가 메세지 */
-    children?:React.ReactNode
+    children?: React.ReactNode;
     /** 버튼 숨기기 */
-    hideButton?:boolean
+    hideButton?: boolean;
     /** Dialog 숨기기 */
-    visible?:boolean,
+    visible?: boolean;
     /** 취소 버튼 클릭 */
     onCancel?: () => void;
     /** 확인 버튼 클릭 */
     onConfirm?: () => void;
-
-}
-const Dialog = ({title, description, cancelable,cancelText,confirmText,children, hideButton, visible, onCancel, onConfirm}:DialogProps) => {
-    const fadeTransition = useTransition(visible, null,{
-        from: {opacity: 0},
-        enter: {opacity: 1},
-        leave: {opacity: 0}
-    })
+};
+const Dialog = ({
+    title,
+    description,
+    cancelable,
+    cancelText,
+    confirmText,
+    children,
+    hideButton,
+    visible,
+    onCancel,
+    onConfirm
+}: DialogProps) => {
+    const fadeTransition = useTransition(visible, null, {
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0 }
+    });
 
     const slideUpTransition = useTransition(visible, null, {
         from: {
-            transform: 'translateY(200px) scale(0.8)',
-            opacity:0
+            transform: "translateY(200px) scale(0.8)",
+            opacity: 0
         },
         enter: {
-            transform: 'translateY(0px) scale(1)',
-            opacity:1
+            transform: "translateY(0px) scale(1)",
+            opacity: 1
         },
         leave: {
-            transform: 'translateY(200px) scale(0.8)',
-            opacity:0
+            transform: "translateY(200px) scale(0.8)",
+            opacity: 0
         },
         config: {
             tension: 200,
             friction: 10
         }
-    })
+    });
 
-    console.log(slideUpTransition)
+    return (
+        <Fragment>
+            {fadeTransition.map(({ item, key, props }) =>
+                item ? (
+                    <animated.div
+                        css={[fullScreen, darkBackground]}
+                        key={key}
+                        style={props}
+                    ></animated.div>
+                ) : null
+            )}
 
-    
-    return(
-    <Fragment>
-        {fadeTransition.map(({item, key, props}) => 
-            item ? (
-                <animated.div 
-                    css={[fullScreen, darkBackground]}
-                    key={key}
-                    style={props}
-                ></animated.div>
-            ): null
-        )}
-        
-
-        {slideUpTransition.map(({item, key,props}) =>
-            item ? (
-                <animated.div 
-                    css={[fullScreen, whiteBoxWrapper]}
-                    style={props}
-                    key={key}
-                >
-                    <div css={whiteBox}>
-                        {title && <h3>{title}</h3>}
-                        {description && <p>{description}</p>}
-                        {children}
-                        {hideButton || <ButtonGroup css={style} rightAlign>
-                            {cancelable && <Button onClick={onCancel} theme="tertiary">{cancelText}</Button>}
-                            <Button onClick={onConfirm}>{confirmText}</Button>
-                        </ButtonGroup>}
-                    </div>
-                </animated.div>
-            ) : null
-        )}
-    </Fragment>
-  );
-}
+            {slideUpTransition.map(({ item, key, props }) =>
+                item ? (
+                    <animated.div
+                        css={[fullScreen, whiteBoxWrapper]}
+                        style={props}
+                        key={key}
+                    >
+                        <div css={[whiteBox, globalStyle]}>
+                            {title && <h3>{title}</h3>}
+                            {description && <p>{description}</p>}
+                            {children}
+                            {hideButton || (
+                                <ButtonGroup css={style} rightAlign>
+                                    {cancelable && (
+                                        <Button
+                                            onClick={onCancel}
+                                            theme="tertiary"
+                                            size="medium"
+                                        >
+                                            {cancelText}
+                                        </Button>
+                                    )}
+                                    <Button onClick={onConfirm} size="medium">
+                                        {confirmText}
+                                    </Button>
+                                </ButtonGroup>
+                            )}
+                        </div>
+                    </animated.div>
+                ) : null
+            )}
+        </Fragment>
+    );
+};
 
 Dialog.defaultProps = {
-    cancelText:'취소',
-    confirmText:'확인'
-}
+    cancelText: "취소",
+    confirmText: "확인"
+};
 
 const fullScreen = css`
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+`;
 
 const darkBackground = css`
-    background: rgba(0,0,0,0.5);
-    z-index:10;
-`
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+`;
 const whiteBoxWrapper = css`
-    z-index:15;
+    z-index: 15;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
-`
+`;
 const whiteBox = css`
-    box-sizing:border-box;
-    border-radius:4px;
-    width:25rem;
-    background:white;
-    box-shadow: 0px 4px 8px 8px rgba(0,0,0,0.05);
-    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 25rem;
+    background: white;
+    box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
     h3 {
-        font-size:1.5rem;
+        font-size: 1.5rem;
         color: #343a40;
         margin-top: 0;
         margin-bottom: 1rem;
@@ -134,9 +153,9 @@ const whiteBox = css`
         margin: 0;
         color: #868e96;
     }
-`   
+`;
 const style = css`
-    margin-top:3rem;
-`
+    margin-top: 3rem;
+`;
 
 export default Dialog;

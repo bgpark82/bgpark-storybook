@@ -1,178 +1,200 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core'
+import { css, jsx } from "@emotion/core";
+import globalStyle from "../globalStyle";
+import "../index";
+import { color, gray } from "../theme";
 
 type ButtonProps = {
     /** 버튼 안의 내용 */
-    children: React.ReactNode,
+    children: React.ReactNode;
     /** 버튼의 theme */
-    theme: 'primary' | 'secondary' | 'tertiary' | 'bordered',
+    theme: "primary" | "secondary" | "tertiary" | "bordered";
     /** 버튼의 크기 */
-    size: 'small' | 'medium' | 'large',
+    size: "small" | "medium" | "large";
     /** 버튼 비활성화 */
-    disabled?: boolean,
+    disabled?: boolean;
     /** 버튼 너비 */
-    width?: string|number,
+    width?: string | number;
     /** 아이콘 버튼 */
-    iconOnly?: boolean
+    iconOnly?: boolean;
     /** 버튼 둥글기 */
-    radius?:boolean
+    radius?: boolean;
+    /** custom style */
+    className?: string;
+    /** 메인 색 */
+    colorMain?: string;
 
     /** 버튼 Click 이벤트  */
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-}
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
 
-const Button = ({children, theme, size, disabled, width, onClick, iconOnly, radius}:ButtonProps) => {
-    return(
-        <button css={[style, themes[theme], sizes[size], {width}, radius && radiusStyle, iconOnly && [iconOnlyStyle, iconOnlySizes[size]]]} 
-                disabled={disabled}
-                onClick={onClick}
-        >{children}</button>
-    )
-}
+const Button = ({
+    children,
+    theme,
+    size,
+    disabled,
+    width,
+    onClick,
+    iconOnly,
+    radius,
+    className
+}: ButtonProps) => {
+    return (
+        <button
+            css={[
+                globalStyle,
+                style,
+                themes[theme],
+                sizes[size],
+                { width },
+                radius && radiusStyle,
+                iconOnly && [iconOnlyStyle, iconOnlySizes[size]]
+            ]}
+            disabled={disabled}
+            onClick={onClick}
+            className={className}
+        >
+            {children}
+        </button>
+    );
+};
 
 Button.defaultProps = {
-    theme: 'primary',
-    size: 'small'
-}
+    theme: "primary",
+    size: "small"
+};
 
 const style = css`
-    outline:none;
-    border:none;
+    cursor: pointer;
+    outline: none;
+    border: none;
     box-sizing: border-box;
-    height:2rem;
-    font-size:0.875rem;
+    height: 2rem;
+    font-size: 0.875rem;
     padding: 0.5rem;
-    background: #20c997;
-    color:white;
-    border-radius:0.25rem;
-    line-height:1;
-    font-weight:600;
+    background: ${color.main};
+    color: white;
+    border-radius: 0.25rem;
+    line-height: 1;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    &:focus {
-        box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
-    }
+
     &:disabled {
-        cursor:not-allowed;
+        cursor: not-allowed;
     }
     svg {
-        width:1em;
+        width: 1em;
         margin-right: 1em;
     }
-    
-`
+`;
 
 const themes = {
-    primary : css`
-        background: #20c997;
-        color:white;
+    primary: css`
+        background: ${color.main};
+        color: white;
         svg {
-            fill:white;
+            fill: white;
         }
         &:hover:enabled {
-        background: #38d9a9;
+            background: ${color.sub};
         }
-        &:active:enabled{
-            background: #12b886;
-        }
-        &:disabled{
-            background: #aed9cc;
+
+        &:disabled {
+            background: ${color.disabled};
         }
     `,
     secondary: css`
-        background: #e9ecef;
-        color: #343a40;
+        background: ${gray.sub};
+        color: ${gray.main};
         &:hover:enabled {
-            background: #f1f3f5;
+            background: ${gray.hover};
         }
-        &:active:enabled {
-            background: #dee2e6;
-        }
+
         &:disabled {
-          color: #c6d3e1;
-          svg {
-            fill: #c6d3e1;
-          }
+            color: white;
+            svg {
+                fill: ${gray.hover};
+            }
         }
     `,
     tertiary: css`
         background: none;
-        color: #20c997;
+        color: ${color.main};
+        border: 1.4px solid ${color.main};
         &:hover:enabled {
-            background: #e6fcf5;
+            color: ${color.hover};
+            border-color: ${color.hover};
         }
-        &:active:enabled {
-            background: #c3fae8;
-        }
+
         &:disabled {
-            color: #bcd9d0;
+            color: ${color.disabled};
+            border-color: ${color.disabled};
             svg {
-                fill: #bcd9d0;
+                fill: ${color.disabled};
             }
         }
     `,
     bordered: css`
-        border:1.4px solid #343a40;
-        color: #343a40;
-        background:none;
+        border: 1.4px solid ${gray.main};
+        color: ${gray.main};
+        background: none;
         &:hover:enabled {
-            background: #343a40;
-            color:white;
+            background: ${gray.main};
+            color: white;
         }
-        &:active:enabled {
-            background: #343a40;
-        }
+
         &:disabled {
-            color: #e9ecef;
-            border-color:#e9ecef;
+            color: ${gray.disabled};
+            border-color: ${gray.disabled};
             svg {
-                fill: #e9ecef;
+                fill: ${gray.disabled};
             }
         }
     `
-}
+};
 
 const sizes = {
-    small:css`
+    small: css`
         height: 1.75rem;
-        font-size: 0.75rem;
+        font-size: 1rem;
         padding: 0 0.875rem;
     `,
-    medium:css`
-        height: 2.5rem;
+    medium: css`
+        height: 2rem;
         font-size: 1rem;
         padding: 0 1rem;
     `,
-    large:css`
-        height: 3rem;
+    large: css`
+        height: 2.25rem;
         font-size: 1.125rem;
-        padding: 0 1.5rem;
+        padding: 0 1.25rem;
     `
-}
+};
 
 const iconOnlyStyle = css`
     border-radius: 50%;
-    padding:0;
-    svg{
-        margin:0;
+    padding: 0;
+    svg {
+        margin: 0;
     }
-`
+`;
 
 const iconOnlySizes = {
-    small:css`
+    small: css`
         width: 1.75rem;
     `,
-    medium:css`
+    medium: css`
         width: 2.5rem;
     `,
-    large:css`
-        width: 3rem; 
+    large: css`
+        width: 3rem;
     `
-}
+};
 
 const radiusStyle = css`
-    border-radius:4rem;
-`
+    border-radius: 4rem;
+`;
 
 export default Button;

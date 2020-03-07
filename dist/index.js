@@ -15,7 +15,7 @@ function _taggedTemplateLiteral(strings, raw) {
 }
 
 function _templateObject13() {
-  var data = _taggedTemplateLiteral(["\n    border-radius:4rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    border-radius: 4rem;\n"]);
 
   _templateObject13 = function _templateObject13() {
     return data;
@@ -25,7 +25,7 @@ function _templateObject13() {
 }
 
 function _templateObject12() {
-  var data = _taggedTemplateLiteral(["\n        width: 3rem; \n    "]);
+  var data = _taggedTemplateLiteral(["\n        width: 3rem;\n    "]);
 
   _templateObject12 = function _templateObject12() {
     return data;
@@ -55,7 +55,7 @@ function _templateObject10() {
 }
 
 function _templateObject9() {
-  var data = _taggedTemplateLiteral(["\n    border-radius: 50%;\n    padding:0;\n    svg{\n        margin:0;\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n    border-radius: 50%;\n    padding: 0;\n    svg {\n        margin: 0;\n    }\n"]);
 
   _templateObject9 = function _templateObject9() {
     return data;
@@ -95,7 +95,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n        border:1.4px solid #343a40;\n        color: #343a40;\n        background:none;\n        &:hover:enabled {\n            background: #343a40;\n            color:white;\n        }\n        &:active:enabled {\n            background: #343a40;\n        }\n        &:disabled {\n            color: #e9ecef;\n            border-color:#e9ecef;\n            svg {\n                fill: #e9ecef;\n            }\n        }\n    "]);
+  var data = _taggedTemplateLiteral(["\n        border: 1.4px solid #343a40;\n        color: #343a40;\n        background: none;\n        &:hover:enabled {\n            background: #343a40;\n            color: white;\n        }\n        &:active:enabled {\n            background: #343a40;\n        }\n        &:disabled {\n            color: #e9ecef;\n            border-color: #e9ecef;\n            svg {\n                fill: #e9ecef;\n            }\n        }\n    "]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -115,7 +115,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n        background: #e9ecef;\n        color: #343a40;\n        &:hover:enabled {\n            background: #f1f3f5;\n        }\n        &:active:enabled {\n            background: #dee2e6;\n        }\n        &:disabled {\n          color: #c6d3e1;\n          svg {\n            fill: #c6d3e1;\n          }\n        }\n    "]);
+  var data = _taggedTemplateLiteral(["\n        background: #e9ecef;\n        color: #343a40;\n        &:hover:enabled {\n            background: #f1f3f5;\n        }\n        &:active:enabled {\n            background: #dee2e6;\n        }\n        &:disabled {\n            color: #c6d3e1;\n            svg {\n                fill: #c6d3e1;\n            }\n        }\n    "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -125,7 +125,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n        background: #20c997;\n        color:white;\n        svg {\n            fill:white;\n        }\n        &:hover:enabled {\n        background: #38d9a9;\n        }\n        &:active:enabled{\n            background: #12b886;\n        }\n        &:disabled{\n            background: #aed9cc;\n        }\n    "]);
+  var data = _taggedTemplateLiteral(["\n        background: #20c997;\n        color: white;\n        svg {\n            fill: white;\n        }\n        &:hover:enabled {\n            background: #38d9a9;\n        }\n        &:active:enabled {\n            background: #12b886;\n        }\n        &:disabled {\n            background: #aed9cc;\n        }\n    "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -135,7 +135,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    outline:none;\n    border:none;\n    box-sizing: border-box;\n    height:2rem;\n    font-size:0.875rem;\n    padding: 0.5rem;\n    background: #20c997;\n    color:white;\n    border-radius:0.25rem;\n    line-height:1;\n    font-weight:600;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    &:focus {\n        box-shadow: 0px 0px 6px rgba(0,0,0,0.2);\n    }\n    &:disabled {\n        cursor:not-allowed;\n    }\n    svg {\n        width:1em;\n        margin-right: 1em;\n    }\n    \n"]);
+  var data = _taggedTemplateLiteral(["\n    outline: none;\n    border: none;\n    box-sizing: border-box;\n    height: 2rem;\n    font-size: 0.875rem;\n    padding: 0.5rem;\n    background: #20c997;\n    color: white;\n    border-radius: 0.25rem;\n    line-height: 1;\n    font-weight: 600;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    &:focus {\n        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);\n    }\n    &:disabled {\n        cursor: not-allowed;\n    }\n    svg {\n        width: 1em;\n        margin-right: 1em;\n    }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -152,19 +152,21 @@ var Button = function Button(_ref) {
       width = _ref.width,
       onClick = _ref.onClick,
       iconOnly = _ref.iconOnly,
-      radius = _ref.radius;
+      radius = _ref.radius,
+      className = _ref.className;
   return jsx("button", {
     css: [style, themes[theme], sizes[size], {
       width: width
     }, radius && radiusStyle, iconOnly && [iconOnlyStyle, iconOnlySizes[size]]],
     disabled: disabled,
-    onClick: onClick
+    onClick: onClick,
+    className: className
   }, children);
 };
 
 Button.defaultProps = {
-  theme: 'primary',
-  size: 'small'
+  theme: "primary",
+  size: "small"
 };
 var style = css(_templateObject());
 var themes = {
