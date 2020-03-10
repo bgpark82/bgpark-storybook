@@ -127,10 +127,10 @@ const fullScreen = css`
 
 const darkBackground = css`
     background: rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    z-index: 400;
 `;
 const whiteBoxWrapper = css`
-    z-index: 15;
+    z-index: 500;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,4 +1,4 @@
-import { jsx, css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { Fragment, createElement } from 'react';
 import { useTransition, animated } from 'react-spring';
 
@@ -13,6 +13,30 @@ function _taggedTemplateLiteral(strings, raw) {
     }
   }));
 }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    font-family: -apple-system, BlinkMacSystemFont, \"Helvetica Neue\",\n        \"Apple SD Gothic Neo\", \"Malgun Gothic\", \"\uB9D1\uC740 \uACE0\uB515\", \uB098\uB214\uACE0\uB515,\n        \"Nanum Gothic\", \"Noto Sans KR\", \"Noto Sans CJK KR\", arial, \uB3CB\uC6C0, Dotum,\n        Tahoma, Geneva, sans-serif;\n\n    letter-spacing: -0.5px;\n    font-weight: 500;\n    color: #424242;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var globalStyle = css(_templateObject());
+
+var color = {
+  main: "#7950f2",
+  sub: "#845ef7",
+  hover: "#9775fa",
+  disabled: "#e5dbff"
+};
+var gray = {
+  main: "#343a40",
+  sub: "#e9ecef",
+  hover: "#f1f3f5",
+  disabled: "#c6d3e1"
+};
 
 function _templateObject13() {
   var data = _taggedTemplateLiteral(["\n    border-radius: 4rem;\n"]);
@@ -65,7 +89,7 @@ function _templateObject9() {
 }
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n        height: 3rem;\n        font-size: 1.125rem;\n        padding: 0 1.5rem;\n    "]);
+  var data = _taggedTemplateLiteral(["\n        height: 2.25rem;\n        font-size: 1.125rem;\n        padding: 0 1.25rem;\n    "]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -75,7 +99,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n        height: 2.5rem;\n        font-size: 1rem;\n        padding: 0 1rem;\n    "]);
+  var data = _taggedTemplateLiteral(["\n        height: 2rem;\n        font-size: 1rem;\n        padding: 0 1rem;\n    "]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -85,7 +109,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n        height: 1.75rem;\n        font-size: 0.75rem;\n        padding: 0 0.875rem;\n    "]);
+  var data = _taggedTemplateLiteral(["\n        height: 1.75rem;\n        font-size: 1rem;\n        padding: 0 0.875rem;\n    "]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -95,7 +119,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n        border: 1.4px solid #343a40;\n        color: #343a40;\n        background: none;\n        &:hover:enabled {\n            background: #343a40;\n            color: white;\n        }\n        &:active:enabled {\n            background: #343a40;\n        }\n        &:disabled {\n            color: #e9ecef;\n            border-color: #e9ecef;\n            svg {\n                fill: #e9ecef;\n            }\n        }\n    "]);
+  var data = _taggedTemplateLiteral(["\n        border: 1.4px solid ", ";\n        color: ", ";\n        background: none;\n        &:hover:enabled {\n            background: ", ";\n            color: white;\n        }\n\n        &:disabled {\n            color: ", ";\n            border-color: ", ";\n            svg {\n                fill: ", ";\n            }\n        }\n    "]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -105,7 +129,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n        background: none;\n        color: #20c997;\n        &:hover:enabled {\n            background: #e6fcf5;\n        }\n        &:active:enabled {\n            background: #c3fae8;\n        }\n        &:disabled {\n            color: #bcd9d0;\n            svg {\n                fill: #bcd9d0;\n            }\n        }\n    "]);
+  var data = _taggedTemplateLiteral(["\n        background: none;\n        color: ", ";\n        border: 1.4px solid ", ";\n        &:hover:enabled {\n            color: ", ";\n            border-color: ", ";\n        }\n\n        &:disabled {\n            color: ", ";\n            border-color: ", ";\n            svg {\n                fill: ", ";\n            }\n        }\n    "]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -115,7 +139,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n        background: #e9ecef;\n        color: #343a40;\n        &:hover:enabled {\n            background: #f1f3f5;\n        }\n        &:active:enabled {\n            background: #dee2e6;\n        }\n        &:disabled {\n            color: #c6d3e1;\n            svg {\n                fill: #c6d3e1;\n            }\n        }\n    "]);
+  var data = _taggedTemplateLiteral(["\n        background: ", ";\n        color: ", ";\n        &:hover:enabled {\n            background: ", ";\n        }\n\n        &:disabled {\n            color: white;\n            svg {\n                fill: ", ";\n            }\n        }\n    "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -125,7 +149,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n        background: #20c997;\n        color: white;\n        svg {\n            fill: white;\n        }\n        &:hover:enabled {\n            background: #38d9a9;\n        }\n        &:active:enabled {\n            background: #12b886;\n        }\n        &:disabled {\n            background: #aed9cc;\n        }\n    "]);
+  var data = _taggedTemplateLiteral(["\n        background: ", ";\n        color: white;\n        svg {\n            fill: white;\n        }\n        &:hover:enabled {\n            background: ", ";\n        }\n\n        &:disabled {\n            background: ", ";\n        }\n    "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -134,10 +158,10 @@ function _templateObject2() {
   return data;
 }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    outline: none;\n    border: none;\n    box-sizing: border-box;\n    height: 2rem;\n    font-size: 0.875rem;\n    padding: 0.5rem;\n    background: #20c997;\n    color: white;\n    border-radius: 0.25rem;\n    line-height: 1;\n    font-weight: 600;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    &:focus {\n        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);\n    }\n    &:disabled {\n        cursor: not-allowed;\n    }\n    svg {\n        width: 1em;\n        margin-right: 1em;\n    }\n"]);
+function _templateObject$1() {
+  var data = _taggedTemplateLiteral(["\n    cursor: pointer;\n    outline: none;\n    border: none;\n    box-sizing: border-box;\n    height: 2rem;\n    font-size: 0.875rem;\n    padding: 0.5rem;\n    background: ", ";\n    color: white;\n    border-radius: 0.25rem;\n    line-height: 1;\n    font-weight: 600;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n\n    &:disabled {\n        cursor: not-allowed;\n    }\n    svg {\n        width: 1em;\n        margin-right: 1em;\n    }\n"]);
 
-  _templateObject = function _templateObject() {
+  _templateObject$1 = function _templateObject() {
     return data;
   };
 
@@ -155,7 +179,7 @@ var Button = function Button(_ref) {
       radius = _ref.radius,
       className = _ref.className;
   return jsx("button", {
-    css: [style, themes[theme], sizes[size], {
+    css: [globalStyle, style, themes[theme], sizes[size], {
       width: width
     }, radius && radiusStyle, iconOnly && [iconOnlyStyle, iconOnlySizes[size]]],
     disabled: disabled,
@@ -168,12 +192,12 @@ Button.defaultProps = {
   theme: "primary",
   size: "small"
 };
-var style = css(_templateObject());
+var style = css(_templateObject$1(), color.main);
 var themes = {
-  primary: css(_templateObject2()),
-  secondary: css(_templateObject3()),
-  tertiary: css(_templateObject4()),
-  bordered: css(_templateObject5())
+  primary: css(_templateObject2(), color.main, color.sub, color.disabled),
+  secondary: css(_templateObject3(), gray.sub, gray.main, gray.hover, gray.hover),
+  tertiary: css(_templateObject4(), color.main, color.main, color.hover, color.hover, color.disabled, color.disabled, color.disabled),
+  bordered: css(_templateObject5(), gray.main, gray.main, gray.main, gray.disabled, gray.disabled, gray.disabled)
 };
 var sizes = {
   small: css(_templateObject6()),
@@ -233,10 +257,10 @@ function _templateObject2$1() {
   return data;
 }
 
-function _templateObject$1() {
+function _templateObject$2() {
   var data = _taggedTemplateLiteral(["\n    display:flex;\n"]);
 
-  _templateObject$1 = function _templateObject() {
+  _templateObject$2 = function _templateObject() {
     return data;
   };
 
@@ -259,7 +283,7 @@ ButtonGroup.defaultProps = {
   direction: 'row',
   gap: '0.5rem'
 };
-var style$1 = css(_templateObject$1());
+var style$1 = css(_templateObject$2());
 var flex = {
   row: css(_templateObject2$1()),
   column: css(_templateObject3$1())
@@ -274,7 +298,7 @@ var gapStyle = function gapStyle(direction, gap) {
 };
 
 function _templateObject5$1() {
-  var data = _taggedTemplateLiteral(["\n    margin-top:3rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    margin-top: 3rem;\n"]);
 
   _templateObject5$1 = function _templateObject5() {
     return data;
@@ -284,7 +308,7 @@ function _templateObject5$1() {
 }
 
 function _templateObject4$2() {
-  var data = _taggedTemplateLiteral(["\n    box-sizing:border-box;\n    border-radius:4px;\n    width:25rem;\n    background:white;\n    box-shadow: 0px 4px 8px 8px rgba(0,0,0,0.05);\n    padding: 2rem;\n    h3 {\n        font-size:1.5rem;\n        color: #343a40;\n        margin-top: 0;\n        margin-bottom: 1rem;\n    }\n    p {\n        font-size: 1rem;\n        margin: 0;\n        color: #868e96;\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n    box-sizing: border-box;\n    border-radius: 4px;\n    width: 25rem;\n    background: white;\n    box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.05);\n    padding: 1.5rem;\n    h3 {\n        font-size: 1.5rem;\n        color: #343a40;\n        margin-top: 0;\n        margin-bottom: 1rem;\n    }\n    p {\n        font-size: 1rem;\n        margin: 0;\n        color: #868e96;\n    }\n"]);
 
   _templateObject4$2 = function _templateObject4() {
     return data;
@@ -294,7 +318,7 @@ function _templateObject4$2() {
 }
 
 function _templateObject3$2() {
-  var data = _taggedTemplateLiteral(["\n    z-index:15;\n    display: flex;\n    align-items:center;\n    justify-content: center;\n"]);
+  var data = _taggedTemplateLiteral(["\n    z-index: 500;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n"]);
 
   _templateObject3$2 = function _templateObject3() {
     return data;
@@ -304,7 +328,7 @@ function _templateObject3$2() {
 }
 
 function _templateObject2$2() {
-  var data = _taggedTemplateLiteral(["\n    background: rgba(0,0,0,0.5);\n    z-index:10;\n"]);
+  var data = _taggedTemplateLiteral(["\n    background: rgba(0, 0, 0, 0.5);\n    z-index: 400;\n"]);
 
   _templateObject2$2 = function _templateObject2() {
     return data;
@@ -313,10 +337,10 @@ function _templateObject2$2() {
   return data;
 }
 
-function _templateObject$2() {
-  var data = _taggedTemplateLiteral(["\n    position:fixed;\n    top:0;\n    left:0;\n    width:100%;\n    height:100%;\n"]);
+function _templateObject$3() {
+  var data = _taggedTemplateLiteral(["\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n"]);
 
-  _templateObject$2 = function _templateObject() {
+  _templateObject$3 = function _templateObject() {
     return data;
   };
 
@@ -347,15 +371,15 @@ var Dialog = function Dialog(_ref) {
   });
   var slideUpTransition = useTransition(visible, null, {
     from: {
-      transform: 'translateY(200px) scale(0.8)',
+      transform: "translateY(200px) scale(0.8)",
       opacity: 0
     },
     enter: {
-      transform: 'translateY(0px) scale(1)',
+      transform: "translateY(0px) scale(1)",
       opacity: 1
     },
     leave: {
-      transform: 'translateY(200px) scale(0.8)',
+      transform: "translateY(200px) scale(0.8)",
       opacity: 0
     },
     config: {
@@ -363,7 +387,6 @@ var Dialog = function Dialog(_ref) {
       friction: 10
     }
   });
-  console.log(slideUpTransition);
   return jsx(Fragment, null, fadeTransition.map(function (_ref2) {
     var item = _ref2.item,
         key = _ref2.key,
@@ -382,24 +405,26 @@ var Dialog = function Dialog(_ref) {
       style: props,
       key: key
     }, jsx("div", {
-      css: whiteBox
+      css: [whiteBox, globalStyle]
     }, title && jsx("h3", null, title), description && jsx("p", null, description), children, hideButton || jsx(ButtonGroup, {
       css: style$2,
       rightAlign: true
     }, cancelable && jsx(Button, {
       onClick: onCancel,
-      theme: "tertiary"
+      theme: "tertiary",
+      size: "medium"
     }, cancelText), jsx(Button, {
-      onClick: onConfirm
+      onClick: onConfirm,
+      size: "medium"
     }, confirmText)))) : null;
   }));
 };
 
 Dialog.defaultProps = {
-  cancelText: '취소',
-  confirmText: '확인'
+  cancelText: "취소",
+  confirmText: "확인"
 };
-var fullScreen = css(_templateObject$2());
+var fullScreen = css(_templateObject$3());
 var darkBackground = css(_templateObject2$2());
 var whiteBoxWrapper = css(_templateObject3$2());
 var whiteBox = css(_templateObject4$2());
@@ -425,10 +450,10 @@ function _templateObject2$3() {
   return data;
 }
 
-function _templateObject$3() {
+function _templateObject$4() {
   var data = _taggedTemplateLiteral(["\n    width:20rem;\n    padding:1rem;\n    display:flex;\n\n    & + & {\n        margin-top: 3rem;\n    }\n    &:hover {\n        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);\n    }\n"]);
 
-  _templateObject$3 = function _templateObject() {
+  _templateObject$4 = function _templateObject() {
     return data;
   };
 
@@ -463,7 +488,7 @@ Item.defaultProps = {
   title: '이미지',
   description: '이미지 설명'
 };
-var itemBox = css(_templateObject$3());
+var itemBox = css(_templateObject$4());
 var thumbnail = css(_templateObject2$3());
 var contents = css(_templateObject3$3());
 
@@ -507,10 +532,10 @@ function _templateObject2$4() {
   return data;
 }
 
-function _templateObject$4() {
+function _templateObject$5() {
   var data = _taggedTemplateLiteral(["\n    display:flex;\n    align-items:center;\n    justify-content:space-between;\n    font-weight:800;\n    padding:0.75rem 1rem;\n    border-bottom: 1px solid rgb(233, 236, 239);\n    & > div {\n        cursor:pointer;\n        color:#424242;\n        text-decoration:none;\n    }\n"]);
 
-  _templateObject$4 = function _templateObject() {
+  _templateObject$5 = function _templateObject() {
     return data;
   };
 
@@ -561,7 +586,7 @@ Header.defaultProps = {
   hideButton: false,
   hideProfile: false
 };
-var container = css(_templateObject$4());
+var container = css(_templateObject$5());
 var logo = css(_templateObject2$4());
 var list = css(_templateObject3$4());
 var listItem = css(_templateObject4$3());

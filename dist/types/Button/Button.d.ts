@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import "../index";
 declare type ButtonProps = {
     /** 버튼 안의 내용 */
     children: React.ReactNode;
@@ -16,6 +17,8 @@ declare type ButtonProps = {
     radius?: boolean;
     /** custom style */
     className?: string;
+    /** 메인 색 */
+    colorMain?: string;
     /** 버튼 Click 이벤트  */
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
